@@ -1,12 +1,12 @@
 # Materiales Matemática Escuela
 
-Este proyecto es una página web para organizar y ofrecer materiales educativos de matemática para estudiantes de secundaria.
+Este proyecto es una página web para organizar y ofrecer materiales educativos de matemática para estudiantes y docentes de matemática de secundaria.
 
 ---
 
 ## Objetivo
 
-Crear un sitio sencillo donde estén disponibles los bloques teóricos, prácticas y otros recursos para diferentes años escolares:
+Crear un sitio sencillo donde estén disponibles los bloques teórico/prácticos y otros recursos para diferentes años escolares:
 
 - Primer año de secundaria
 - Tercer año de secundaria
@@ -33,7 +33,7 @@ Crear un sitio sencillo donde estén disponibles los bloques teóricos, práctic
 
 ## Autor
 
-Luciana Romero
+Profesora en matemática y Licenciada en Educación Secundaria Luciana Yael Romero
 
 ---
 
