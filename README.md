@@ -1,6 +1,6 @@
 # Materiales Matemática Escuela
 
-Este proyecto es una página web para organizar y ofrecer materiales educativos de matemática para estudiantes y docentes de matemática de secundaria.
+Este proyecto es una página web para organizar y ofrecer materiales educativos de matemática para estudiantes y docentes de secundaria.
 
 ---
 
