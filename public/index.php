@@ -1,7 +1,7 @@
 <?php
-// Carga el header y footer
 include 'includes/header.php';
 ?>
+<?php include 'includes/navbar.php'; ?>
 
 <main>
     <section>
