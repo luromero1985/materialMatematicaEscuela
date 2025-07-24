@@ -70,6 +70,7 @@ Este proyecto servirá como repaso práctico de los contenidos de Web 1 y 2 (TUD
 
 ## Estructura propuesta de carpetas (MVC)
 
+```text
 /sitio-matematica/
 │
 ├── public/               # Document Root - lo que ve el navegador
@@ -92,6 +93,7 @@ Este proyecto servirá como repaso práctico de los contenidos de Web 1 y 2 (TUD
 │   └── esquema.sql       # Esquema de base de datos
 │
 └── README.md             # Documentación
+```
 
 
 ---
