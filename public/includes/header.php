@@ -13,7 +13,8 @@
     <li><a href="primero.php">1º Año</a></li>
     <li><a href="tercero.php">3º Año</a></li>
     <li><a href="sexto.php">6º Año</a></li>
-    <li><a href="editar.php">Subir material</a></li>
+    <li><a href="subirMaterial.php">Subir material</a></li>
+     <li><a href="materiales.php">Ver materiales</a></li>
   </ul>
 </nav>
 

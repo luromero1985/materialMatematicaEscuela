@@ -59,6 +59,30 @@ main {
     padding: 20px;
     text-align: center;
 }
+/* Estilos para la tabla de materiales */
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background-color: #eee;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+h2 {
+    text-align: center;
+}
 
 footer {
     background-color: #2c3e50;

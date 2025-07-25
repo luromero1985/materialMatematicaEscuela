@@ -6,12 +6,21 @@
 </head>
 <body>
     <h1>Subir Material</h1>
-    <form action="procesar_subida.php" method="post" enctype="multipart/form-data">
-        <label>Archivo PDF:
+    
+    <?php if (isset($_GET['mensaje']) && $_GET['mensaje'] === 'ok'): ?>
+        <p style="color: green;">Archivo subido correctamente.</p>
+    <?php endif; ?>
+
+    <form action="editar.php" method="post" enctype="multipart/form-data">
+        <label>Título:<br>
+            <input type="text" name="titulo" required>
+        </label><br><br>
+
+        <label>Archivo PDF:<br>
             <input type="file" name="archivo" accept=".pdf" required>
         </label><br><br>
 
-        <label>Año:
+        <label>Año:<br>
             <select name="anio" required>
                 <option value="1">1° Año</option>
                 <option value="3">3° Año</option>
@@ -24,6 +33,7 @@
         </label><br><br>
 
         <button type="submit">Subir</button>
+        <button type="button" onclick="window.location.href='index.php'">Cancelar</button>
     </form>
 </body>
 </html>
