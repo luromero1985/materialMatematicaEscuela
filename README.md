@@ -4,29 +4,21 @@
 
 Crear un sitio web funcional y escalable que permita:
 
-- Visualizar los contenidos trabajados en Matemática en 1ro, 3ro y 6to año.
-
-- Acceder a los bloques por curso, y dentro de cada bloque, a sus materiales.
-
-- Buscar contenidos por curso o bloque.
-
-- Gestionar (agregar, editar, eliminar) materiales de cada bloque.
-
-Este proyecto servirá como repaso práctico de los contenidos de Web 1 y 2 (TUDAI), y como una muestra funcional para entrevistas laborales.
+- Visualizar los contenidos trabajados en Matemática en 1ro, 3ro y 6to año.  
+- Acceder a los bloques por curso, y dentro de cada bloque, a sus materiales (PDFs).  
+- Buscar contenidos por curso o bloque (pendiente de implementación).  
+- Gestionar (agregar y listar) materiales de cada bloque (subida de PDFs, con título, descripción y año).  
+- Servir como repaso práctico de contenidos de Web 1 y 2 (TUDAI) y como muestra funcional para entrevistas.
 
 ---
 
 ## Tecnologías utilizadas
 
-- HTML5, CSS3, JavaScript
-
-- PHP (estilo MVC simple)
-
-- MySQL
-
-- Bootstrap
-
-- Apache (usando XAMPP)
+- HTML5, CSS3, JavaScript  
+- PHP puro (estructura simple, sin frameworks)  
+- MySQL (base de datos `escuela`)  
+- Bootstrap (planificado para mejoras de UI)  
+- Servidor Apache (XAMPP en entorno local)  
 
 ---
 
@@ -34,107 +26,89 @@ Este proyecto servirá como repaso práctico de los contenidos de Web 1 y 2 (TUD
 
 ### Barra de navegación principal
 
-- Cursos: 1ro, 3ro, 6to
+- Cursos: 1ro, 3ro, 6to  
+- Botón: Subir material (página para cargar PDFs)  
 
-- Botón: Administrar materiales
+### Página principal (`index.php`)
 
-### Página principal
+- Barra de navegación con enlaces a:  
+  - 1er año  
+  - 3er año  
+  - 6to año  
+  - Subir material  
+- Presentación general (en desarrollo)  
 
-- Barra de navegación con links a:
+### Páginas por curso (`primero.php`, `tercero.php`, `sexto.php`)
 
-    - 1er año
+- Listado simple de materiales para cada curso (próximamente mostrar PDFs ordenados por fecha o bloque)  
 
-    - 3er año
+### Página para subir material (`editar.php`)
 
-    - 6to año
-
-    - Página de gestión de materiales
-
-- Input de búsqueda por curso o bloque
-
-- Lista de bloques por curso
-
-### Página por curso
-
-- Lista de bloques
-
-- Al hacer clic en un bloque, se abre una vista con sus contenidos y materiales (PDF, links, descripciones)
-
-### Página de administración
-
-- Formulario para agregar, editar y eliminar materiales
-
-- Carga inicial de materiales desde PDF
+- Formulario para subir archivos PDF, asignar año y agregar descripción  
+- Validación básica y guardado del archivo en carpeta `uploads/`  
+- Inserción de metadatos en tabla `materiales` de la base de datos  
 
 ---
 
-## Estructura propuesta de carpetas (MVC)
+## Estructura actual de carpetas
 
-```text
-/sitio-matematica/
+ ```
+ /proyectoPaginaEscuela/
 │
-├── public/               # Document Root - lo que ve el navegador
-│   ├── index.php         # Entrada principal
-│   ├── css/
-│   ├── js/
-│   ├── img/
-│   └── uploads/          # archivos subidos(pdf)
+├── public/ # Document root accesible por navegador
+│ ├── index.php # Página principal
+│ ├── primero.php
+│ ├── tercero.php
+│ ├── sexto.php
+│ ├── editar.php # Formulario y lógica para subir material
+│ ├── css/
+│ ├── js/
+│ ├── img/
+│ └── uploads/ # Archivos PDF subidos
 │
-├── app/
-│   ├── controllers/      # Controladores: lógica de manejo de vistas
-│   ├── models/           # Modelos: acceso a datos, conexión con base
-│   ├── views/            # Vistas: HTML/PHP que muestra la interfaz
-│   └── core/             # Enrutador, conexión a BD, helpers
+├── includes/ # Fragmentos comunes (ej. navbar.php)
 │
 ├── config/
-│   └── config.php        # Conexión a base de datos, rutas, etc
+│ └── config.php # Configuración de conexión a BD
 │
 ├── sql/
-│   └── esquema.sql       # Esquema de base de datos
+│ └── esquema.sql # Esquema de base de datos
 │
-└── README.md             # Documentación
-```
-
-
+└── README.md # Documentación 
+  ``` 
+  
 ---
 
 ## Base de datos
 
-### Tabla: cursos
-
-id_curso (PK)
-nombre (ej: "1ro", "3ro", "6to")
-
-### Tabla: bloques
-
-id_bloque (PK)
-nombre_bloque
-descripcion
-id_curso (FK)
-
 ### Tabla: materiales
 
-id_material (PK)
-titulo
-tipo (pdf, link, actividad, etc.)
-contenido (puede ser link o texto)
-id_bloque (FK)
+| Campo          | Tipo           | Comentario                    |
+|----------------|----------------|------------------------------|
+| id             | INT AUTO_INCREMENT PRIMARY KEY | Identificador único          |
+| titulo         | VARCHAR(255)   | Nombre original del archivo   |
+| descripcion    | TEXT           | Descripción opcional          |
+| nombre_archivo | VARCHAR(255)   | Nombre guardado en uploads/   |
+| ruta           | VARCHAR(255)   | Ruta relativa en el servidor  |
+| anio           | INT            | Año al que corresponde (1,3,6)|
+| fecha_subida   | TIMESTAMP      | Fecha de subida automática    |
 
 ---
 
-## Escalabilidad 
+## Próximos pasos / Escalabilidad
 
-- Se puede agregar más cursos o bloques fácilmente desde la base de datos.
-
-- La lógica de MVC permite separar presentación, lógica y persistencia.
-
-- Se pueden agregar usuarios y roles si se desea gestionar permisos a futuro.
+- Implementar vista para listar materiales filtrados por curso y bloque.  
+- Añadir búsqueda y filtrado por descripción o título.  
+- Mejorar interfaz con Bootstrap o framework CSS.  
+- Agregar manejo de usuarios y permisos para administrar contenidos.  
+- Considerar migración a frameworks PHP o bases de datos más escalables.  
 
 ---
 
 ## Autor
 
-Profesora en matemática y Licenciada en Educación Secundaria Luciana Yael Romero
+Profesora en matemática y Licenciada en Educación Secundaria  
+Luciana Yael Romero  
 
 ---
 
