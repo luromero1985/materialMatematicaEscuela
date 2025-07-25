@@ -1,5 +1,4 @@
 <?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
 
 <main class="container">
     <h1>Bloques de Matemática - 1º Año</h1>
